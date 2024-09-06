@@ -1,0 +1,25 @@
+
+<template>
+    <lightning-card title="Loan Application Form">
+        <div class="slds-p-around_medium">
+            <lightning-input label="First Name" name="personalFirstName" onchange={handleInputChange}></lightning-input>
+            <lightning-input label="Last Name" name="personalLastName" onchange={handleInputChange}></lightning-input>
+            <lightning-input label="Email" name="personalEmail" onchange={handleInputChange}></lightning-input>
+            <lightning-input label="Phone" name="personalPhone" onchange={handleInputChange}></lightning-input>
+            <lightning-input label="Employer" name="employmentEmployer" onchange={handleInputChange}></lightning-input>
+            <lightning-input label="Job Title" name="employmentJobTitle" onchange={handleInputChange}></lightning-input>
+            <lightning-input label="Annual Income" name="financialAnnualIncome" onchange={handleInputChange}></lightning-input>
+            <lightning-input label="Loan Amount" name="financialLoanAmount" onchange={handleInputChange}></lightning-input>
+            <lightning-button label="Submit" onclick={handleSubmit} class="slds-m-top_medium"></lightning-button>
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading"></lightning-spinner>
+            </template>
+            <template if:true={errorMessage}>
+                <div class="slds-text-color_error">{errorMessage}</div>
+            </template>
+            <template if:true={successMessage}>
+                <div class="slds-text-color_success">{successMessage}</div>
+            </template>
+        </div>
+    </lightning-card>
+</template>
